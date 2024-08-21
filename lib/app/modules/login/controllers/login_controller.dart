@@ -26,7 +26,7 @@ class LoginController extends GetxController {
     final data = json.decode(response.body);
     final token = data['access_token'];
     box.write('access_token', token);
-    Get.offAllNamed('/home');
+    Get.offAllNamed('/bottom-menu');
   } else {
     Get.snackbar('Error', 'Login failed. Please check your credentials.',
         snackPosition: SnackPosition.BOTTOM);

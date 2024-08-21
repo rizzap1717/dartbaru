@@ -20,7 +20,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.BIODATA;
+  static const INITIAL = Routes.BOTTOM_MENU;
 
   static final routes = [
     GetPage(
@@ -52,13 +52,15 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROFILE,
-      page: () => ProfileView(),
+      page: () =>  ProfileView(),
       binding: ProfileBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: _Paths.BOTTOM_MENU,
-      page: () => BottomMenuView(),
+      page: () =>  BottomMenuView(),
       binding: BottomMenuBinding(),
+      middlewares: [AuthMiddleware()],
     ),
   ];
 }
