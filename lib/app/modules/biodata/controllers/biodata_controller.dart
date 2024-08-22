@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 
-// ignore: unused_import
-import '../../data/biodata_model.dart';
+import '../../../data/biodata_model.dart';
 
 class BiodataController extends GetxController {
   // Menggunakan Rx untuk variabel yang reaktif
@@ -13,6 +12,7 @@ class BiodataController extends GetxController {
 
   // Fungsi untuk mengubah nilai
   void setNama(String value) => nama.value = value;
+
   void setJenisKelamin(String? value) {
     if (value != null) jenisKelamin.value = value;
   }
@@ -22,6 +22,7 @@ class BiodataController extends GetxController {
   }
 
   void setTanggalLahir(DateTime value) => tanggalLahir.value = value;
+
   void setAlamat(String value) => alamat.value = value;
 
   // Fungsi untuk submit formulir
@@ -36,6 +37,4 @@ class BiodataController extends GetxController {
     );
     Get.toNamed('/output', arguments: formData);
   }
-  
-  BiodataModel({required String nama, required String jenisKelamin, required String agama, required DateTime tanggalLahir, required String alamat}) {}
 }

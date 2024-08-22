@@ -34,7 +34,7 @@ class ProfileController extends GetxController {
       userProfile.value = json.decode(response.body);
     } else {
       Get.snackbar('Error', 'Failed to load profile',
-        snackPosition: SnackPosition.BOTTOM);
+          snackPosition: SnackPosition.BOTTOM);
     }
     isLoading(false);
   }

@@ -51,76 +51,78 @@ class BiodataView extends GetView<BiodataController> {
               Row(
                 children: [
                   Obx(() => Expanded(
-                    child: ListTile(
-                      title: const Text('Laki-laki'),
-                      leading: Radio<String>(
-                        value: 'Laki-laki',
-                        groupValue: controller.jenisKelamin.value,
-                        onChanged: controller.setJenisKelamin,
-                        activeColor: Colors.teal,
-                      ),
-                    ),
-                  )),
+                        child: ListTile(
+                          title: const Text('Laki-laki'),
+                          leading: Radio<String>(
+                            value: 'Laki-laki',
+                            groupValue: controller.jenisKelamin.value,
+                            onChanged: controller.setJenisKelamin,
+                            activeColor: Colors.teal,
+                          ),
+                        ),
+                      )),
                   Obx(() => Expanded(
-                    child: ListTile(
-                      title: const Text('Perempuan'),
-                      leading: Radio<String>(
-                        value: 'Perempuan',
-                        groupValue: controller.jenisKelamin.value,
-                        onChanged: controller.setJenisKelamin,
-                        activeColor: Colors.teal,
-                      ),
-                    ),
-                  )),
+                        child: ListTile(
+                          title: const Text('Perempuan'),
+                          leading: Radio<String>(
+                            value: 'Perempuan',
+                            groupValue: controller.jenisKelamin.value,
+                            onChanged: controller.setJenisKelamin,
+                            activeColor: Colors.teal,
+                          ),
+                        ),
+                      )),
                 ],
               ),
               SizedBox(height: 16),
               Obx(() => DropdownButtonFormField<String>(
-                value: controller.agama.value.isEmpty
-                    ? null
-                    : controller.agama.value,
-                items: <String>['Islam', 'Kristen', 'Hindu', 'Budha']
-                    .map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: controller.setAgama,
-                decoration: InputDecoration(
-                  labelText: 'Pilih Agama',
-                  prefixIcon: Icon(Icons.accessibility),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              )),
+                    value: controller.agama.value.isEmpty
+                        ? null
+                        : controller.agama.value,
+                    items: <String>['Islam', 'Kristen', 'Hindu', 'Budha']
+                        .map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: controller.setAgama,
+                    decoration: InputDecoration(
+                      labelText: 'Pilih Agama',
+                      prefixIcon: Icon(Icons.accessibility),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  )),
               SizedBox(height: 16),
               Obx(() => TextField(
-                decoration: InputDecoration(
-                  labelText: 'Tanggal Lahir',
-                  hintText: 'Pilih Tanggal Lahir',
-                  prefixIcon: Icon(Icons.calendar_today),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                readOnly: true,
-                onTap: () async {
-                  DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: controller.tanggalLahir.value,
-                    firstDate: DateTime(1900),
-                    lastDate: DateTime.now(),
-                  );
-                  if (pickedDate != null) {
-                    controller.setTanggalLahir(pickedDate);
-                  }
-                },
-                controller: TextEditingController(
-                  text: controller.tanggalLahir.value.toString().split(' ')[0],
-                ),
-              )),
+                    decoration: InputDecoration(
+                      labelText: 'Tanggal Lahir',
+                      hintText: 'Pilih Tanggal Lahir',
+                      prefixIcon: Icon(Icons.calendar_today),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    readOnly: true,
+                    onTap: () async {
+                      DateTime? pickedDate = await showDatePicker(
+                        context: context,
+                        initialDate: controller.tanggalLahir.value,
+                        firstDate: DateTime(1900),
+                        lastDate: DateTime.now(),
+                      );
+                      if (pickedDate != null) {
+                        controller.setTanggalLahir(pickedDate);
+                      }
+                    },
+                    controller: TextEditingController(
+                      text: controller.tanggalLahir.value
+                          .toString()
+                          .split(' ')[0],
+                    ),
+                  )),
               SizedBox(height: 16),
               TextField(
                 onChanged: controller.setAlamat,

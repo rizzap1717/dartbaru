@@ -1,11 +1,11 @@
-class biodataModel {
+class BiodataModel {
   String nama;
   String jenisKelamin;
   String agama;
-  String tanggalLahir;
+  DateTime tanggalLahir;
   String alamat;
 
-  biodataModel({
+  BiodataModel({
     required this.nama,
     required this.jenisKelamin,
     required this.agama,
